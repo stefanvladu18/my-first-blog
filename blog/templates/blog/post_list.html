@@ -7,16 +7,18 @@
         <header>
             <h1><a href="/">Vladu Stefan Blog</a></h1>
         </header>
-
+        {% for post in posts %}
         <article>
-            <time>Astazi 16/03/2023 ora 19:13</time>
-            <h2><a href="">Introducere</a></h2>
-            <p>(introducere chipurile)</p>
+            <time>published: {{ post.published_date }}</time>
+            <h2><a href="">{{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr}}</p>
         </article>
-
+        {%endfor%}
         <article>
             <h2><a href="">Concluzie</a></h2>
-            <p>(Concluzie chipurile)</p>
+            <p>{% for post in posts %}
+                {{ post }}
+            {% endfor %}</p>
         </article>
     </body>
 </html>
